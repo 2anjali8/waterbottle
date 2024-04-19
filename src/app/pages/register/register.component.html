@@ -1,0 +1,59 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      /* You can add your custom CSS styles here */
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <h1>Register</h1>
+        <div class="input-box">
+          <input type="text" formControlName="name" placeholder="Full Name" required>
+          <div *ngIf="signupForm.get('name')?.invalid && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)">
+            <div *ngIf="signupForm.get('name')?.errors?.['required']" style="color: red;">Name is required.</div>
+            <div *ngIf="signupForm.get('name')?.errors?.['minlength']" style="color: red;">Name must be at least 3 characters long.</div></div>
+          <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+          <input type="email" formControlName="email" placeholder="Email" required>
+          <div *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched)">
+            <div *ngIf="signupForm.get('email')?.errors?.['required']" style="color: red;">Email is required.</div>
+            <div *ngIf="signupForm.get('email')?.errors?.['pattern']" style="color: red;">Invalid email format.</div>
+          </div>
+          <i class='bx bx-envelope'></i>
+        </div>
+        <div class="input-box">
+          <input type="password" formControlName="password" placeholder="Password" required>
+          <div *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched)">
+            <div *ngIf="signupForm.get('password')?.errors?.['required'] " style="color: red;">Password is required.</div>
+            <div *ngIf="signupForm.get('password')?.errors?.['pattern']" style="color: red;">Password must be between 6 to 12 characters and contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.</div>
+          </div>
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="input-box">
+          <input type="tel" placeholder="Phone Number" formControlName="number" required>
+          <div *ngIf="signupForm.get('number')?.invalid && (signupForm.get('number')?.dirty || signupForm.get('number')?.touched)">
+            <div *ngIf="signupForm.get('number')?.errors?.['required']" style="color: red;">Number is required.</div>
+            <div *ngIf="signupForm.get('number')?.errors?.['pattern']" style="color: red;">Invalid number format. Number must be of 10 digits.</div>
+          </div>
+          <i class='bx bx-phone'></i>
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="Address" formControlName="address" required>
+          <div *ngIf="signupForm.get('address')?.invalid && (signupForm.get('address')?.dirty || signupForm.get('address')?.touched)">
+            <div *ngIf="signupForm.get('address')?.errors?.['required']" style="color: red;">Address is required.</div>
+            <div *ngIf="signupForm.get('address')?.errors?.['minlength']" style="color: red;">Address must be at least 3 characters long.</div>
+          </div>
+          <i class='bx bx-map'></i>
+        </div>
+        <button type="submit" class="btn">Register</button>
+        <div class="login-link">
+          <p>Already have an account? <a href="/login">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+  

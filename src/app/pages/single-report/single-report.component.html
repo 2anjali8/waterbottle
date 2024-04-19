@@ -1,0 +1,157 @@
+<div class="flex justify-center">
+  <div class="bg-white shadow-md rounded-md p-6 w-full lg:w-1/2">
+    <div
+      class="jumbotron jumbotron-fluid"
+      id="banner"
+      style="background-color: #192440"
+    >
+      <div class="container text-center text-md-left">
+        <div class="row justify-content-between">
+          <p
+            data-aos="fade"
+            data-aos-easing="linear"
+            data-aos-duration="1000"
+            data-aos-once="true"
+            class="lead text-white my-1"
+          >
+            DETAILED ANLAYSIS OF REPORT
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="flex justify-center">  -->
+    <!-- Pie Chart Component -->
+    <!-- <app-pie-chart [perfectCount]="report.perfectCount" [unperfectCount]="report.totalCount - report.perfectCount"></app-pie-chart> -->
+    <!-- </div> -->
+
+    <div *ngIf="reportType === 'session'">
+      <div class="horizontal-box">
+        <p>Start Time: {{ report.sTime }}</p>
+        <p>End Time: {{ report.eTime }}</p>
+        <p>Date: {{ report.date }}</p>
+        <p>
+          Accuracy:
+          {{ ((report.perfectCount * 100) / report.totalCount).toFixed(2) }}%
+        </p>
+      </div>
+      <div class="container">
+        <div class="card">
+          <div class="circle">
+            <h2>{{ report.totalCount }}</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: medium">TOTAL BOTTLES</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="circle">
+            <h2>{{ report.perfectCount }}</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: medium">PERFECT BOTTLES</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="circle">
+            <h2>{{ report.withoutCapCount }}</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: medium">BOTTLE WITHOUT CAP</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="circle">
+            <h2>{{ report.withoutLabelCount }}</h2>
+          </div>
+          <div></div>
+          <div class="content">
+            <p style="font-size: medium">BOTTLE WITHOUT LABEL</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="circle">
+            <h2>{{ report.withoutBothCount }}</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: medium">BOTTLE WITHOUT CAP & LABEL</p>
+          </div>
+        </div>
+      </div>
+      <div class="pie-chart-container">
+        <app-pie-chart
+          [perfectCount]="report.perfectCount"
+          [withoutCapCount]="report.withoutCapCount"
+          [withoutLabelCount]="report.withoutLabelCount"
+          [withoutBothCount]="report.withoutBothCount"
+        ></app-pie-chart>
+      </div>
+    </div>
+    <div *ngIf="reportType === 'daily'">
+      <div class="horizontal-box">
+        <p>Date: {{ report.date }}</p>
+        <p>
+          Accuracy:
+          {{ ((report.totalPerfectCount * 100) / report.totalCount).toFixed(2) }}%
+        </p>
+      </div>
+      <div class="container">
+        <div class="card">
+          <div class="circle">
+            <h2>{{ report.totalCount }}</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: medium">TOTAL BOTTLES</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="circle">
+            <h2>{{ report.totalPerfectCount }}</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: medium">PERFECT BOTTLES</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="circle">
+            <h2>{{ report.totalWithoutCapCount }}</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: medium">BOTTLE WITHOUT CAP</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="circle">
+            <h2>{{ report.totalWithoutLabelCount }}</h2>
+          </div>
+          <div></div>
+          <div class="content">
+            <p style="font-size: medium">BOTTLE WITHOUT LABEL</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="circle">
+            <h2>{{ report.totalWithoutBothCount }}</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: medium">BOTTLE WITHOUT CAP & LABEL</p>
+          </div>
+        </div>
+      </div>
+      <div class="pie-chart-container">
+        <app-pie-chart
+          [perfectCount]="report.totalPerfectCount"
+          [withoutCapCount]="report.totalWithoutCapCount"
+          [withoutLabelCount]="report.totalWithoutLabelCount"
+          [withoutBothCount]="report.totalWithoutBothCount"
+        ></app-pie-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,5 +1,5 @@
-/* 
 
+/* topnav css  */
 .topnav {
     width: 100%;
     position: fixed;
@@ -29,7 +29,9 @@
     background-color: #192440 ;
     display: none;
 }
+/* topnav css  */
 
+/* left sidebar nav  */
 
 .sidebar {
     position: fixed;
@@ -41,7 +43,7 @@
     border-right: 1px solid rgb(128, 128, 128);
     padding: 30px 5px;
     margin: 0px;
-    width: 200px;
+    width: 240px;
 }
 
 .sidebar a {
@@ -78,14 +80,16 @@ ul>li>a.active{
     color: #000;
 }
 
+/* left sidebar nav  */
 
-
+/* main-content */
 .main-content {
     margin-left:230px;
     margin-top: 100px;
     padding: 10px 18px;
     transition: margin-left .5s;
 }
+/* main-content */
 
 
 
@@ -107,4 +111,4 @@ ul>li>a.active{
         margin-left: 0px;
     }
 
-} */
+}

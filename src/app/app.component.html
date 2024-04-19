@@ -1,15 +1,13 @@
-<!-- topnavbar -->
+<!-- 
 <div class="topnav shadow p-1">
-    <a>Admin Dashboard</a>
+    <a>WATERBOTTLE INSPECTION SYSTEM</a>
     <span class="menu" (click)="openNav(true)"><i class="bi bi-list"></i></span>
 </div>
-<!-- topnavbar -->
 
-<!-- left sidebar nav  -->
 
 <div  class="sidebar shadow p-2"  id="sidebar"  [ngStyle]="responsiveMenu">
     <ul>
-        <li><a routerLink=""><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a routerLink=""><i class="bi bi-speedometer2"></i> HOME</a></li>
         <li><a routerLink="/reports"><i class="bi bi-card-text"></i> Reports</a></li>
         <li>
             <a href="#"><i class="bi bi-bag"></i> Products <i class="bi bi-arrow-right icon"></i></a>
@@ -30,13 +28,10 @@
 
     </ul>
 </div>
-<!-- left sidebar nav  -->
 
-
-<!-- main content  -->
 
 <div class="main-content" [ngStyle]="responsiveContent">
     <router-outlet></router-outlet>
 </div>
-
-<!-- main content  -->
+ -->
+<router-outlet></router-outlet>

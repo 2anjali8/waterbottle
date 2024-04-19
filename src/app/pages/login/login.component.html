@@ -1,0 +1,32 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body>
+   <div class="wrapper">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h1>Login</h1>
+      <div class="input-box">
+        <input type="text" formControlName="email" placeholder="Username" required>
+        <i class='bx bxs-user'></i>
+        <div *ngIf="loginForm.get('email')?.errors && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+          <div *ngIf="loginForm.get('email')?.errors?.['required']" style="color: red;">Email is required.</div>
+          <div *ngIf="loginForm.get('email')?.errors?.['email']" style="color: red;">Invalid email format.</div>
+        </div>
+      </div>
+      <div class="input-box">
+        <input type="password" formControlName="password" placeholder="Password" required>
+        <i class='bx bxs-lock-alt'></i>
+        <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" style="color: red;">
+          <div *ngIf="loginForm.get('password')?.errors?.['required']" style="color:red">Password is required.</div>
+      </div>
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <div class="register-link">
+        <p>Don't have an account? <a href="/signup">Register</a></p>
+      </div>
+    </form>
+  </div>
+  </body>
+  
